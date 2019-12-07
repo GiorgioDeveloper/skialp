@@ -26,7 +26,7 @@ export default class NavBar extends React.Component {
               <Link to="/create-tour">Create Tour</Link>
             </p>
             <p>
-              <Link to="/all-tours">Find Tours</Link>
+              <Link to="/all-tours">All Tours</Link>
             </p>
             <p>
               <Link to="/profile">Profile</Link>
@@ -39,7 +39,7 @@ export default class NavBar extends React.Component {
             </p>
           </div>
         ) : (
-          <p>
+          <div>
             <h1>SKIALP</h1>
             <p>
               <Link to="/">Home</Link>
@@ -47,7 +47,7 @@ export default class NavBar extends React.Component {
             <p>
               <Link to="/login">Login</Link>
             </p>
-          </p>
+          </div>
         )}
       </nav>
     );

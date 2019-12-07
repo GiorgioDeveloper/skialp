@@ -15,7 +15,14 @@ const Mountain = require("../models/Mountain");
 
 // uploadCloud e' un middlewaer e serve per gestire i file che non sono testo
 router.post("/create-tour", uploadCloud.single("picture"), (req, res) => {
-  const { mountainName, mountainId } = req.body;
+  const {
+    mountainName,
+    mountainId,
+    snowQuality,
+    snowDepth,
+    recomended,
+    comments
+  } = req.body;
   console.log(req.body, "req body");
   // creiamo un new tour per poter accedere alla proprieta ._id, abbiamo cretato un nuovo documento che salviamo e lo rendiamo disponibile per sotto
   // con new tour stiamo dicendo che myTour e' un nuovo modello/schema (come e' Tour.js)
@@ -34,7 +41,11 @@ router.post("/create-tour", uploadCloud.single("picture"), (req, res) => {
     mountainName,
     mountainId,
     user: req.session.currentUser._id,
-    picture: tourFoto
+    picture: tourFoto,
+    snowQuality,
+    snowDepth,
+    recomended,
+    comments
   });
 
   // salviamo il myTour in MongoDB
@@ -138,5 +149,17 @@ router.post(
     }
   }
 );
+
+// collega il database TOURS con il client, da usare poi con axios per richiamare i tours
+router.get("/all-tours", (req, res) => {
+  Tour.find()
+    .populate("mountainId")
+    .then(tours => {
+      res.status(200).json({ message: "Tours received", tours });
+    })
+    .catch(error => {
+      res.status(401).json({ message: "Error", error });
+    });
+});
 
 module.exports = router;

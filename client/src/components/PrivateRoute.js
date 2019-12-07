@@ -11,6 +11,7 @@ const protectedRoute = ({ component: Component, loggedinUser, ...rest }) => {
       render={props => {
         //render is a function that checks if the user is passed a long. If not the private route will redirect to "/"
         if (loggedinUser) {
+          // we added  {...res} to pass from App.js the props+the function to the components <UpdateProfile> and <Profile>
           return <Component {...props} {...rest} loggedinUser={loggedinUser} />;
         } else {
           return <Redirect to="/" />;
