@@ -7,6 +7,7 @@
     "react": "^16.12.0",
     "react-autosuggest": "^9.4.3",
     "react-dom": "^16.12.0",
+    "react-responsive-carousel": "^3.1.51",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },
@@ -14,7 +15,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-dev": "dotenv -e .env.development react-scripts build",
+    "build-prod": "dotenv -e .env.production react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"

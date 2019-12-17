@@ -11,6 +11,7 @@ import YourTours from "./pages/YourTours";
 import CreateTour from "./pages/CreateTour";
 import NavBar from "./components/NavBar";
 import UpdateProfile from "./components/UpdateProfile";
+import Tour from "./pages/Tour";
 
 export default class App extends React.Component {
   constructor() {
@@ -92,6 +93,12 @@ export default class App extends React.Component {
             path="/create-tour"
             loggedinUser={this.state.loggedinUser}
             component={CreateTour}
+          />
+
+          <PrivateRoute
+            path="/tour/:id"
+            loggedinUser={this.state.loggedinUser}
+            component={Tour}
           />
         </Switch>
       </div>

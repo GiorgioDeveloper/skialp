@@ -46,17 +46,25 @@ export default class CreateTour extends React.Component {
       <div>
         <h1>this is the Create-Tour page</h1>
         <form ref={this.formRef} onSubmit={this.submitHandler}>
-          <input type="file" name="picture" />
+          <input type="file" name="picture" multiple />
+          <input type="date" name="date" />
+
           <Auto type="text" name="mountainName" setValue={this.setValue} />
 
           {/* input hidden creto per poter passare mountainId al server tramite req.body, extrastep fatto per poter passare anche la foto, che non e' parte dello this.state */}
 
-          <input type="text" name="mountainId" value={this.state.mountainId} />
+          <input
+            type="hidden"
+            name="mountainId"
+            value={this.state.mountainId}
+          />
 
           <select type="text" name="snowQuality" placeholder="snowQuality">
-            <option value="icey">Icey</option>
             <option value="powder">Powder</option>
-            <option value="broken">Broken</option>
+            <option value="crud">Crud</option>
+            <option value="crust">Crust</option>
+            <option value="slush">Slush</option>
+            <option value="ice">Ice</option>
           </select>
 
           <select type="number" name="snowDepth" placeholder="snowDepth">
@@ -77,7 +85,7 @@ export default class CreateTour extends React.Component {
             <option value="No">No</option>
           </select>
 
-          <input type="text" name="comments" placeholder="comments" />
+          <input type="text" name="description" placeholder="description" />
 
           <button type="submit">submit</button>
         </form>

@@ -43,7 +43,7 @@ export default class Auto extends React.Component {
   getSuggestionValue = suggestion => suggestion.mountainName;
 
   // Use your imagination to render suggestions.
-  renderSuggestion = suggestion => <div>{suggestion.mountainName} test</div>;
+  renderSuggestion = suggestion => <div>{suggestion.mountainName}</div>;
 
   onChange = (event, { newValue }) => {
     let myMountainId = "";

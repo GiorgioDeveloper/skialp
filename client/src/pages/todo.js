@@ -23,13 +23,26 @@
 // 10 pgina all tours (from all users) => all filters (regione, neve, consigliato o no etc)
 // 11 pagina profilo con foto e descrizione e sommario tot tours, tot metri dislivello,
 // 12 pagiona all mountains (facoltativa)
+// 13 filtro most recent
+// 14 render all tour info and also date
 
 //COMMENTI//
-// 13 comments su ogni tour, con notifica mail
+// 13 comments su ogni tour,
+
+// FOTO multiple //
+// 14 crea carosello in pagina single Tour
+
+// NOTIFICA//
+// 15 notifica commento ricevuto
+
+// FOTO Created by//
+// 16 foto su created by e link al profilo? (profilo adesso e' privato)
 
 //LINK ESTERNI//
-// 14 link ad aineva
+// 17 link ad aineva
 
 // to adjust
 // seguendo questo processo arriviamo a un errore => signup- login- create-profile -and then edit profile directly
 // in questo caso se proviamo a fare edit profile quando siamo al primissimo login, allora il submit non funziona
+// the suggestion in the create tour is not working as the filter in find tour
+// filtro su difficulty MS prende anche MSA

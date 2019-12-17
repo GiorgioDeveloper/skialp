@@ -15,12 +15,22 @@ export default class Profile extends React.Component {
             <h2>surname: {user.surname}</h2>
             <h2>Age: {user.age}</h2>
             <h2>Ski Level: {user.skiLevel}</h2>
-            <p>about: {user.about}</p>
+            <h2>Total Tours: {user.tours.length}</h2>
+            <h2>Total gain: </h2>
+            <p>About: {user.about}</p>
 
             {user.profilePicture ? (
-              <img src={user.profilePicture} alt="image"></img>
+              <img
+                src={user.profilePicture}
+                alt="profile-foto"
+                className="profile-foto"
+              ></img>
             ) : (
-              <img src={user.profilePicture} alt="image"></img>
+              <img
+                src={user.profilePicture}
+                alt="profile-foto"
+                className="profile-foto"
+              ></img>
             )}
             <p>
               <Link to="/update-profile">Update Profile</Link>
