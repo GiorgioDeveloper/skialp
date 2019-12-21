@@ -182,6 +182,7 @@ router.get("/your-tours", (req, res) => {
 
 // rout per filtro date, req.query per avere le info dalla URL dopo il "?"
 router.get("/tours-by-date", (req, res) => {
+  debugger;
   const {
     userTours, //"true" || "false"
     location,
@@ -201,11 +202,10 @@ router.get("/tours-by-date", (req, res) => {
 
   if (userTours === "true") dbQuery.user = req.session.currentUser._id;
 
-  console.log(dateQ);
-
   Tour.find(dbQuery)
     .populate("mountainId")
     .then(tours => {
+      debugger;
       let filteredTours = tours
         .filter(tour => {
           if (!snowQuality) return true;

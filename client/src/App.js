@@ -92,7 +92,7 @@ export default class App extends React.Component {
             component={AllTours}
           />
           <PrivateRoute
-            path="/your-tours"
+            path="/yours-tours"
             loggedinUser={this.state.loggedinUser}
             component={YourTours}
           />
