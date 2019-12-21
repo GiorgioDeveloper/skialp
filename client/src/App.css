@@ -21,6 +21,13 @@
   color: #09d3ac;
 }
 
+/* ////// for the app ///////// */
+body {
+  font-family: "Poppins", sans-serif;
+}
+p {
+  color: #777;
+}
 .mountain-foto {
   width: 300px;
 }
@@ -28,3 +35,287 @@
 .profile-foto {
   width: 300px;
 }
+
+/* for the video in home page */
+.myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+  z-index: 1;
+}
+/* for the login page */
+
+.login {
+  background-image: url("/images/login5.jpg");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+  /* min-height: 100vh; */
+  text-align: center;
+  padding-top: 80px;
+  color: #0095d0;
+}
+
+.login h1 {
+  margin-top: 0;
+  font-size: 50px;
+  /* color: #0095d0; */
+  opacity: 0.8;
+  filter: alpha(opacity=50);
+  color: #f1f1f1;
+}
+
+.login p {
+  color: #f1f1f1;
+}
+
+.form {
+  margin: 30px auto;
+  width: 500px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px 80px;
+  border-radius: 4px;
+}
+
+.form label {
+  color: #666;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.form input,
+.btn {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #fff;
+  border: 1px solid #0095d0;
+  border-radius: 4px;
+  color: #0095d0;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease background;
+}
+
+.btn:hover {
+  background: #0095d0;
+  color: #fff;
+  transition: 0.3s ease background;
+}
+
+.error-message {
+  background: #fe0b0a;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 40%;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  background-color: white;
+  /* padding: 20px 0px; */
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.navy {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.login {
+  z-index: 1;
+  position: relative;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+nav ul {
+  display: flex;
+}
+nav li:last-child {
+  margin-left: auto;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+  text-decoration: none;
+  color: white;
+}
+
+li a:hover {
+  text-decoration: none;
+}
+
+.active {
+  background-color: #0095d0;
+}
+
+.flex-container {
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin: 10px; */
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.flex-container p {
+  margin: 10px;
+}
+
+.cart-container {
+  width: 75%;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.cart-container p {
+  line-height: 18px;
+}
+
+.carta {
+  width: 40%;
+  margin: 40px 0px;
+  border-radius: 4px;
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.carta:hover p {
+  text-decoration: none;
+}
+
+/* On mouse-over, add a deeper shadow */
+.carta:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.contain {
+  padding: 2px 16px;
+}
+
+.tour-container {
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 8px;
+  padding: 40px 80px;
+}
+.tour-container h1 {
+  margin-bottom: 20px;
+}
+.tour-container p {
+  line-height: 15px;
+}
+
+.tour-container span {
+  color: #777;
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+  padding: 10px 0 40px;
+}
+.create-tour,
+.update-profile {
+  position: relative;
+  top: 120px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 4px;
+  padding: 40px;
+}
+.create-tour input,
+.create-tour select,
+.update-profile input {
+  display: block;
+  margin: 20px auto;
+  width: 500px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  height: 40px;
+  padding: 10px;
+}
+
+.create-tour button {
+  display: block;
+  margin: 0 auto;
+}
+.profile-section {
+  position: relative;
+  top: 120px;
+  display: flex;
+  justify-content: space-evenly;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 40px;
+}
+/* .update-profile {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+} */

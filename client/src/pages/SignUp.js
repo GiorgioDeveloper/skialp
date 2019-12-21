@@ -20,10 +20,8 @@ export default class SignUp extends React.Component {
       .then(res => {
         console.log(res);
         this.props.history.push("/Login");
-        // return res;
       })
       .catch(res => {
-        console.log(res.response.data, "tesssst");
         this.setState({
           errorMessage: res.response.data.errorMessage
         });
@@ -32,9 +30,9 @@ export default class SignUp extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>this is the signup page</h1>
-        <form onSubmit={this.submitHandler}>
+      <div className="login">
+        <h1>Create your account</h1>
+        <form onSubmit={this.submitHandler} className="form">
           <input
             type="text"
             name="username"
@@ -47,12 +45,20 @@ export default class SignUp extends React.Component {
             placeholder="password"
             onChange={this.onChangeHandler}
           />
-          <button type="submit">submit</button>
+          <button className="btn" type="submit">
+            submit
+          </button>
+          <p>
+            Already have a login?
+            <Link to="/login"> Login </Link>
+          </p>
         </form>
         <p>
-          Already have a login?
-          <Link to="/login"> Login </Link>
-          <p>{this.state.errorMessage}</p>
+          {this.state.errorMessage ? (
+            <p className="error-message">{this.state.errorMessage}</p>
+          ) : (
+            <p></p>
+          )}
         </p>
       </div>
     );

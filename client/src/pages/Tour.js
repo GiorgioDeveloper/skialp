@@ -48,40 +48,67 @@ export default class Tour extends React.Component {
 
   render() {
     let tour = this.state.tour;
-
+    console.log("", this.state.tour);
     return (
       <div>
         <div>
-          {" "}
           {tour ? (
             <div>
               <DemoCarousel pictures={tour.picture} />
 
-              <p>{tour.mountainId.mountainName}</p>
-              <p>{tour.mountainId.location}</p>
-              <p>{tour.mountainId.region}</p>
-              <p>Height: {tour.mountainId.height} mt</p>
-              <p>Elevation Gain: {tour.mountainId.elevationGain} mt</p>
-              <p>Difficulty: {tour.mountainId.difficulty}</p>
-              <p>
-                <a href={tour.mountainId.link} target="_blank">
-                  Tour Details
-                </a>
-              </p>
-              <p>
-                <a href="https://www.aineva.it/bollettini/#top" target="_blank">
-                  AINEVA
-                </a>
-              </p>
-              <p>
-                Snow Quality: {tour.snowQuality} - {tour.snowDepth} cm
-              </p>
-              <p>Description: {tour.description}</p>
+              <div className="carta tour-container">
+                <h1>{tour.mountainId.mountainName}</h1>
+                <p>
+                  <strong>Location: </strong>
+                  {tour.mountainId.location}
+                </p>
+                <p>
+                  <strong>Region: </strong>
+                  {tour.mountainId.region}
+                </p>
+                <p>
+                  <strong>Height:</strong> {tour.mountainId.height} mt
+                </p>
+                <p>
+                  <strong>Elevation Gain:</strong>
+                  {tour.mountainId.elevationGain} mt
+                </p>
+                <p>
+                  <strong>Difficulty:</strong> {tour.mountainId.difficulty}
+                </p>
+                <p>
+                  <strong>Snow Quality:</strong> {tour.snowQuality} -{" "}
+                  {tour.snowDepth} cm
+                </p>
+
+                {/* <p>
+                  <strong>Useful links:</strong>
+                </p>
+                <p>
+                  <a href={tour.mountainId.link} target="_blank">
+                    Tour Details
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="https://www.aineva.it/bollettini/#top"
+                    target="_blank"
+                  >
+                    AINEVA
+                  </a>
+                </p> */}
+
+                <span>{tour.description}</span>
+              </div>
+
               <div>
+                <h2 style={{ marginTop: "40px" }}>Comments</h2>
                 {this.state.tour.comments.map((tour, index) => {
                   return (
                     <div key={index}>
-                      <p>Created by {tour.username}</p>
+                      <p style={{ position: "relative", top: "10px" }}>
+                        <strong>{tour.username}</strong>
+                      </p>
                       <p>{tour.message}</p>
                     </div>
                   );
@@ -92,15 +119,29 @@ export default class Tour extends React.Component {
             <p>loading Tour</p>
           )}
         </div>
-        <form onSubmit={this.submitHandler}>
-          <textarea
-            type="text"
-            name="message"
-            placeholder="message"
-            onChange={this.onChangeHandler}
-          />
-          <button type="submit">submit</button>
-        </form>
+        <div>
+          <form onSubmit={this.submitHandler}>
+            <textarea
+              style={{
+                width: "60%",
+                height: "200px",
+                borderRadius: "4px",
+                boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                border: "none",
+                padding: "10px"
+              }}
+              type="text"
+              name="message"
+              placeholder="message"
+              onChange={this.onChangeHandler}
+            />
+            <div style={{ width: "60%", margin: "0 auto" }}>
+              <button className="btn" type="submit">
+                submit
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

@@ -276,7 +276,7 @@ Mountain.deleteMany();
 Mountain.create(mountain)
 
   .then(mountain => {
-    console.log(`${mountain} user created with the following id:`);
+    console.log(`${mountain} mountains created`);
     // console.log(usersCreated.map(u => u._id));
   })
   .then(() => {

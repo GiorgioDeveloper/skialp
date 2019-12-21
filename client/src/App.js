@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
@@ -12,13 +11,16 @@ import CreateTour from "./pages/CreateTour";
 import NavBar from "./components/NavBar";
 import UpdateProfile from "./components/UpdateProfile";
 import Tour from "./pages/Tour";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Video from "./backvideo.mp4";
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
       loggedinUser: null,
-
+      isLoading: true,
       err: null
     };
   }
@@ -36,26 +38,31 @@ export default class App extends React.Component {
     try {
       const currentUser = await isLoggedIn();
       this.setState({
-        loggedinUser: currentUser
+        loggedinUser: currentUser,
+        isLoading: false
       });
     } catch (err) {
       this.setState({
-        loggedinUser: null
+        loggedinUser: null,
+        isLoading: false
       });
     }
   };
 
   render() {
     console.log(this.state.loggedinUser, "da app.js");
+    if (this.state.isLoading) return <p>... Loading</p>;
     return (
       <div className="App">
         <NavBar
           loggedinUser={this.state.loggedinUser}
           setUserState={this.setUserState}
         />
-
-        <p></p>
-
+        {!this.state.loggedinUser && (
+          <video autoPlay muted loop className="myVideo">
+            <source src={Video} type="video/mp4" />
+          </video>
+        )}
         <Switch>
           <Route path="/signup" component={SignUp}></Route>
           <Route

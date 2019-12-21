@@ -27,8 +27,9 @@ export default class UpdateProfile extends React.Component {
   render() {
     console.log(this.props, "vedi props");
     return (
-      <div>
-        <h1>Hi {this.props.username} update your profile</h1>
+      <div className="update-profile">
+        {/* <h1>Hi {this.props.username} update your profile</h1> */}
+        <h1>Profile update</h1>
 
         <form ref={this.formRef} onSubmit={this.submitHandler}>
           <input type="file" name="profilePicture" />
@@ -38,7 +39,11 @@ export default class UpdateProfile extends React.Component {
           <input type="text" name="skiLevel" placeholder="skiLevel" />
           <input type="text" name="about" placeholder="about" />
 
-          <button type="submit">submit</button>
+          <div style={{ width: "500px", margin: "0 auto" }}>
+            <button className="btn" type="submit">
+              submit
+            </button>
+          </div>
         </form>
       </div>
     );

@@ -5,20 +5,14 @@ import { Link } from "react-router-dom";
 export default class Login extends React.Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    errorMessage: null
   };
 
   onChangeHandler = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-
-  //   submitHandler = e => {
-  //     e.preventDefault();
-  //     loginAPI(this.state);
-  //     this.props.setUserState(this.state);
-  //     this.props.history.push("/");
-  //   };
 
   submitHandler = async e => {
     e.preventDefault();
@@ -27,34 +21,46 @@ export default class Login extends React.Component {
 
       this.props.setUserState(user.currentUser);
 
-      this.props.history.push("/Home");
+      this.props.history.push("/your-tours");
     } catch (err) {
-      console.log(err);
+      this.setState({
+        errorMessage: this.props.errorMessage
+      });
     }
   };
 
   render() {
     return (
-      <div>
-        <h1>this is the login page</h1>
-        <form onSubmit={this.submitHandler}>
+      <div className="login">
+        <h1>Login to your account</h1>
+        <form onSubmit={this.submitHandler} className="form">
           <input
             type="text"
             name="username"
             placeholder="username"
             onChange={this.onChangeHandler}
           />
+
           <input
             type="password"
             name="password"
             placeholder="password"
             onChange={this.onChangeHandler}
           />
-          <button type="submit">submit</button>
+          <button className="btn" type="submit">
+            submit
+          </button>
+          <p>
+            You don't have an account?
+            <Link to="/signup"> Signup</Link>
+          </p>
         </form>
         <p>
-          You don't have an account?
-          <Link to="/signup"> Signup</Link>
+          {this.state.errorMessage ? (
+            <p className="error-message">{this.state.errorMessage}</p>
+          ) : (
+            <p></p>
+          )}
         </p>
       </div>
     );

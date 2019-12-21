@@ -43,8 +43,8 @@ export default class CreateTour extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>this is the Create-Tour page</h1>
+      <div className="create-tour">
+        <h1>Create your tour</h1>
         <form ref={this.formRef} onSubmit={this.submitHandler}>
           <input type="file" name="picture" multiple />
           <input type="date" name="date" />
@@ -85,9 +85,23 @@ export default class CreateTour extends React.Component {
             <option value="No">No</option>
           </select>
 
-          <input type="text" name="description" placeholder="description" />
-
-          <button type="submit">submit</button>
+          <textarea
+            style={{
+              width: "500px",
+              height: "200px",
+              borderRadius: "4px",
+              boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+              border: "none",
+              padding: "10px"
+            }}
+            name="description"
+            placeholder="description"
+          />
+          <div style={{ width: "500px", margin: "0 auto" }}>
+            <button className="btn" type="submit">
+              submit
+            </button>
+          </div>
         </form>
       </div>
     );

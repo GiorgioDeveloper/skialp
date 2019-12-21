@@ -9,32 +9,57 @@ export default class Profile extends React.Component {
     return (
       <div>
         {user.name && user.surname ? (
-          <div>
-            <h1>Hi {user.username} this is your profile</h1>
-            <h2>Name: {user.name}</h2>
-            <h2>surname: {user.surname}</h2>
-            <h2>Age: {user.age}</h2>
-            <h2>Ski Level: {user.skiLevel}</h2>
-            <h2>Total Tours: {user.tours.length}</h2>
-            <h2>Total gain: </h2>
-            <p>About: {user.about}</p>
-
-            {user.profilePicture ? (
-              <img
-                src={user.profilePicture}
-                alt="profile-foto"
-                className="profile-foto"
-              ></img>
-            ) : (
-              <img
-                src={user.profilePicture}
-                alt="profile-foto"
-                className="profile-foto"
-              ></img>
-            )}
-            <p>
-              <Link to="/update-profile">Update Profile</Link>
-            </p>
+          <div className="profile-section">
+            <div>
+              <h1 style={{ marginTop: "20px" }}>
+                Welcome back {user.username}
+              </h1>
+              <p>
+                <strong>Name:</strong> {user.name}
+              </p>
+              <p>
+                <strong>Surname:</strong> {user.surname}
+              </p>
+              <p>
+                <strong>Age: </strong>
+                {user.age}
+              </p>
+              <p>
+                <strong>Ski Level:</strong> {user.skiLevel}
+              </p>
+              {user.tours && (
+                <p>
+                  <strong>Total Tours:</strong> {user.tours.length}
+                </p>
+              )}
+              <p>
+                <strong>Total gain:</strong>{" "}
+              </p>
+              <p>
+                <strong>About: </strong>
+                {user.about}
+              </p>
+              <p style={{ marginTop: "40px" }}>
+                <Link className="btn" to="/update-profile">
+                  Update Profile
+                </Link>
+              </p>
+            </div>
+            <div>
+              {user.profilePicture ? (
+                <img
+                  src={user.profilePicture}
+                  alt="profile-foto"
+                  className="profile-foto"
+                ></img>
+              ) : (
+                <img
+                  src={user.profilePicture}
+                  alt="profile-foto"
+                  className="profile-foto"
+                ></img>
+              )}
+            </div>
           </div>
         ) : (
           <UpdateProfile setUserState={this.props.setUserState} />

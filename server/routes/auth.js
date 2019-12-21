@@ -56,7 +56,7 @@ router.post("/login", (req, res) => {
   let currentUser;
   User.findOne({ username: req.body.username }).then(async user => {
     if (!user) {
-      res.status(401).send({
+      res.status(400).send({
         errorMessage: "The username doesn't exist."
       });
     } else {
@@ -70,7 +70,7 @@ router.post("/login", (req, res) => {
 
         res.status(200).json({ message: "Succesfully loggedin", currentUser });
       } else {
-        res.status(401).send({
+        res.status(400).send({
           errorMessage: "incorrect password"
         });
       }

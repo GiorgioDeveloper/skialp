@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../api/authService";
+import Video from "../backvideo.mp4";
 
 export default class NavBar extends React.Component {
   logoutHandler = () => {
@@ -15,38 +16,57 @@ export default class NavBar extends React.Component {
   };
   render() {
     return (
-      <nav>
+      <nav className="sticky">
         {this.props.loggedinUser ? (
-          <div>
-            <h1>hello {this.props.loggedinUser.username} welcome on SKIALP</h1>
-            <p>
-              <Link to="/your-tours">Your Tours</Link>
-            </p>
-            <p>
-              <Link to="/create-tour">Create Tour</Link>
-            </p>
-            <p>
-              <Link to="/all-tours">All Tours</Link>
-            </p>
-            <p>
-              <Link to="/profile">Profile</Link>
-            </p>
-
-            <p>
-              <Link to="/" onClick={this.logoutHandler}>
-                Logout
-              </Link>
-            </p>
+          <div classNaem="navy">
+            <ul>
+              <li>
+                <Link to="/your-tours">Your Tours</Link>
+              </li>
+              <li>
+                <Link to="/create-tour">Create Tour</Link>
+              </li>
+              <li>
+                <Link to="/all-tours">All Tours</Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/" onClick={this.logoutHandler} className="active">
+                  Logout
+                </Link>
+              </li>
+            </ul>
           </div>
         ) : (
           <div>
-            <h1>SKIALP</h1>
-            <p>
-              <Link to="/">Home</Link>
-            </p>
-            <p>
-              <Link to="/login">Login</Link>
-            </p>
+            <div className="content">
+              <h1>SKIALP</h1>
+              <span>
+                Save and share your tours
+                <br /> find the latest information to better plan your tours
+              </span>
+              <div style={{ marginTop: "30px", color: "white" }}>
+                <span>
+                  <Link
+                    style={{
+                      color: "white",
+                      display: "inline-block",
+                      marginRight: "10px"
+                    }}
+                    to="/login"
+                  >
+                    Login
+                  </Link>
+                </span>
+                <span>
+                  <Link style={{ color: "white" }} to="/signup">
+                    Signup
+                  </Link>
+                </span>
+              </div>
+            </div>
           </div>
         )}
       </nav>

@@ -8,9 +8,10 @@ class DemoCarousel extends Component {
     return (
       <Carousel>
         {this.props.pictures.map((foto, index) => {
+          console.log("foto", foto);
           return (
             <div>
-              <img src={foto} />
+              <img style={{ width: "70%" }} src={foto} />
             </div>
           );
         })}
@@ -18,7 +19,5 @@ class DemoCarousel extends Component {
     );
   }
 }
-
-// ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel'));
 
 export default DemoCarousel;
